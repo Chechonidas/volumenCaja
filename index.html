@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volumen</title>
+
+    <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8fafc;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #1f2937;
+      margin-bottom: 30px;
+    }
+
+    div {
+      background-color: #ffffff;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    label {
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+
+    input[type="number"] {
+      padding: 8px 10px;
+      font-size: 1rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      width: 200px;
+    }
+
+    button {
+      padding: 10px 16px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      background-color: #3b82f6;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: #2563eb;
+    }
+
+    #volumensito {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #10b981;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+    <h1>Calcular el volumen de la caja</h1>
+
+    <div>
+        <label for="alto">Inserte alto:</label><input type="number" name="" id="alto">
+        <label for="ancho">Inserte ancho:</label><input type="number" name="" id="ancho">
+        <label for="altura">Inserte altura:</label><input type="number" name="" id="altura">
+    </div>
+    <button type="button" onclick="calcular()">Calcular volumen</button>
+    <p id="volumensito"></p>
+    
+
+    <script>
+
+
+        function calcular(){
+
+            const ALTO = document.getElementById("alto").value;
+            const ANCHO = document.getElementById("ancho").value;
+            const ALTURA = document.getElementById("altura").value;
+            
+            const caja = {
+                alto : Number(ALTO),
+                ancho: Number(ANCHO),
+                altura: Number(ALTURA)
+            }
+
+            let volumenCalculado = sacarVolumen(caja);
+
+            function sacarVolumen(medidas){
+                let volumneFinal = caja.alto * caja.ancho * caja.altura;
+                return volumneFinal;
+            }
+
+            document.getElementById("volumensito").innerHTML = "el volumen final es: " + volumenCalculado
+
+        }
+
+    </script>
+
+</body>
+</html>
